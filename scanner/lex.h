@@ -57,3 +57,4 @@ enum TokenCode {
 
 extern FILE *fp;
 
+void parse_comment();
