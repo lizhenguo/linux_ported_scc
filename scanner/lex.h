@@ -20,7 +20,7 @@ enum TokenCode {
     TK_OPENPA,     // ( (parenthesis)
     TK_CLOSEPA,    // )
     TK_OPENBR,     // [ (bracket)
-    TK_CLOASEBR,   // ]
+    TK_CLOSEBR,   // ]
     TK_OPENCB,     // { (curly brace)
     TK_CLOSECB,    // }
     TK_SEMICOLON,  // ;
@@ -58,3 +58,5 @@ enum TokenCode {
 extern FILE *fp;
 
 void parse_comment();
+void parse_string();
+

@@ -198,4 +198,81 @@ void get_token() {
             }
         case ']':
             {
-                token = 
+                token = TK_OPENBR;
+                ch = getc(fp);
+                break;
+            }
+        case ']':
+            {
+                token = TK_CLOSEBR;
+                ch = getfp(fp);
+                break;
+            }
+        case '{':
+            {
+                token = TK_OPENCB;
+                ch = getc(fp);
+                break;
+            }
+        case '}':
+            {
+                token = TK_CLOSECB;
+                ch = getc(fp);
+                break;
+            }
+        case '(':
+            {
+                token = TK_OPENPA;
+                ch = getc(fp);
+                break;
+            }
+        case ')':
+            {
+                token = TK_CLOSEPA;
+                ch = getc(fp);
+                break;
+            }
+        case ')':
+            {
+                token = TK_CLOSEPA;
+                ch = getc(fp);
+                break;
+            }
+        case ',':
+            {
+                token = TK_COMMA;
+                ch = getc(fp);
+                break;
+            }
+        case '*':
+            {
+                token = TK_STAR;
+                ch = getc(fp);
+                break;
+            }
+        case '\'':
+            {
+                parse_string(ch);
+                token = TK_CCHAR;
+                tkvalue = * (char *) tkstr.data;
+                break;
+            }
+        case '\"':
+            { 
+                parse_string(ch);
+                token = TK_CSTR;
+                break;
+            }
+        case EOF:
+            {
+                token = TK_EOF;
+                break;
+            }
+        default:
+            {
+                error("unknown character: \\x%02x", ch);
+                ch = getch();
+                break;
+            }
+    }
+}
